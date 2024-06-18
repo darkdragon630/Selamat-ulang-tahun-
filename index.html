@@ -3,7 +3,7 @@
 <meta charset='UTF-8'/>
 <meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
-<link href="https://feeldreams.github.io/tutorkak/style.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
 <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
 
 <head>
@@ -11,46 +11,94 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link rel="icon" type="image/x-icon" href="https://www.palingit.com/favicon.ico">
-<!-- 
-  Made with love by Rayys!
-  Blog: https://PalingIT.com
-  Instagram: @rayyarrr
-  TikTok: @rayy4r
-  Email: rayyar0703@gmail.com
-  Thanks to all <3
--->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Josefin Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f7f7f7;
+    }
+    #bodyblur {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+    #wallpaper {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    #Content {
+        text-align: center;
+        z-index: 1;
+    }
+    #suratin img {
+        width: 150px;
+        cursor: pointer;
+    }
+    #fotoakhir, #fotoakhir1, #fotoakhir2, #fotoakhir3, #fotoakhir4, #fotoakhir5, #fotoAkhir {
+        width: 100px;
+        display: inline-block;
+        margin: 10px;
+    }
+    blockquote {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #Tombol {
+        margin-top: 20px;
+    }
+    #Tombol a {
+        background: #ff0040;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    #Tombol a:hover {
+        background: #ff3366;
+    }
+</style>
 </head>
 <body>
    <!-- Ganti Audio di sini -->
-   <audio src="https://feeldreams.github.io/tutorkak/tutorkak.mp3" id="linkmp3"></audio>
+   <audio src="https://example.com/happybirthday.mp3" id="linkmp3"></audio>
    <script>
       const audio = new Audio(document.getElementById('linkmp3').src);
    </script>
    
    <div id="bodyblur">
      <!-- Wallpaper -->
-     <img src="https://feeldreams.github.io/street22.jpeg" id="wallpaper"/>
+     <img src="https://example.com/wallpaper.jpg" id="wallpaper"/>
    </div>
 
    <div id='Content'>
      <div id="suratin">
        <!-- Tombol Surat -->
-       <img src="https://rayyscoding.github.io/envelope.png" onclick="showMessage()"/>
+       <img src="https://example.com/envelope.png" onclick="showMessage()"/>
      </div>
      <p id="ket">Klik Pesannya!</p>
    
      <div>
          <!-- Stiker untuk Konten -->
-         <img src="https://feeldreams.github.io/peachhug.gif" id="fotoakhir"/>
-         <img src="https://feeldreams.github.io/peachhello.gif" id="fotoakhir1"/>
-         <img src="https://feeldreams.github.io/peachspeech.gif" id="fotoakhir2"/>
-         <img src="https://feeldreams.github.io/peachnaik.gif" id="fotoakhir3"/>
-         <img src="https://feeldreams.github.io/peachmuter.gif" id="fotoakhir4"/>
-         <img src="https://feeldreams.github.io/peachktw2.gif" id="fotoakhir5"/>
-         <img src="https://feeldreams.github.io/peachhello.gif" id="fotoAkhir"/>
+         <img src="https://example.com/peachhug.gif" id="fotoakhir"/>
+         <img src="https://example.com/peachhello.gif" id="fotoakhir1"/>
+         <img src="https://example.com/peachspeech.gif" id="fotoakhir2"/>
+         <img src="https://example.com/peachnaik.gif" id="fotoakhir3"/>
+         <img src="https://example.com/peachmuter.gif" id="fotoakhir4"/>
+         <img src="https://example.com/peachktw2.gif" id="fotoakhir5"/>
+         <img src="https://example.com/peachhello.gif" id="fotoAkhir"/>
      </div>
 
      <div>
@@ -81,19 +129,15 @@
 
 <!-- Jangan Edit Bagian Ini -->
 <script>
-  async function menuju(){
-    await swals.fire('OK!', 'Kirim pesan ke WhatsApp aku, ya!', 'success');
-    window.location = "https://api.whatsapp.com/send?phone=&text=" + pesanwhatsapp;
-    Tombol.style="margin-top:15px;opacity:1;transform: scale(1);";
+  async function showMessage(){
+    Swal.fire({
+      title: 'Selamat Ulang Tahun! 🎉',
+      text: 'Semoga harimu penuh kebahagiaan dan semua impianmu tercapai!',
+      icon: 'success',
+      confirmButtonText: 'Terima kasih!'
+    });
+    audio.play();
   }
-
-  const swalst = Swal.mixin({
-    timer: 2777,
-    allowOutsideClick: false,
-    showConfirmButton: false,
-    timerProgressBar: true,
-    imageHeight: 100,
-  });
 
   const swals = Swal.mixin({
     allowOutsideClick: false,
@@ -101,51 +145,6 @@
     imageWidth: 100,
     imageHeight: 100,
   });
-
-  const body = document.querySelector("body");
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "fas fa-heart";
-    heart.style.left = (Math.random() * 90) + "vw";
-    heart.style.animationDuration = (Math.random() * 3) + 2 + "s";
-    body.appendChild(heart);
-  }
-
-  setInterval(function() {
-    var heartArr = document.querySelectorAll(".fa-heart");
-    if (heartArr.length > 100) {
-      heartArr[0].remove();
-    }
-  }, 100);
-
-  let ftom = 0;
-  let jikatom = 0;
-  let ftganti = 0;
-  let fungsi = 0;
-  
-  function mulaikonten() {
-    setTimeout(fmketik1, 1700);
-    setTimeout(mketik1, 1700);
-    setTimeout(fmketik2, 3080);
-    setTimeout(mketik2, 3080);
-    setTimeout(fmketik3, 4700);
-    setTimeout(mketik3, 4700);
-    setTimeout(fmketik4, 6000);
-    setTimeout(mketik4, 6000);
-    setTimeout(fmketik5, 7000);
-    setTimeout(mketik5, 7100);
-  }
-  
-  let vketik = kalimat.innerHTML;
-  kalimat.innerHTML = "";
-  let vketika = kalimata.innerHTML;
-  kalimata.innerHTML = "";
-  let vketikb = kalimatb.innerHTML;
-  kalimatb.innerHTML = "";
-  let vketikc = kalimatc.innerHTML;
-  kalimatc.innerHTML = "";
-  let vketikd = kalimatd.innerHTML;
-  kalimatd.innerHTML = "";
 
   async function jawab() {
     var { value: jawaban } = await swals.fire({
@@ -157,17 +156,14 @@
 
     if(jawaban && jawaban.length < 19) {
       window.jawaban = jawaban;
-      pesanwhatsapp = jawaban;
-      balasan = jawaban;
-      otomatis3();
-      setTimeout(stakhir, 1000);
+      pesanwhatsapp = encodeURIComponent(jawaban);
+      window.location = "https://api.whatsapp.com/send?phone=&text=" + pesanwhatsapp;
     } else {
       await swals.fire('Ups!', 'Jawaban tidak boleh kosong atau lebih dari 18 karakter, ya!');
       jawab();
     }
   }
 </script>
-<script src="https://feeldreams.github.io/tutorkak/script.js"></script>
 <!-- Sampai Sini -->
 </body>
 </html>
