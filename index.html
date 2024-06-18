@@ -47,6 +47,27 @@
 </div>
 
 <script>
+// Ambil elemen-elemen yang dibutuhkan
+const suratin = document.getElementById("suratin");
+const pesanWA = document.getElementById("pesanWA");
+const pesanAwal = document.getElementById("pesanAwal");
+const Tombol = document.getElementById("Tombol");
+
+// Tambahkan event listener untuk ikon amplop
+suratin.addEventListener("click", function() {
+  // Tampilkan pesan dan tombol lanjut
+  pesanWA.style.display = "block";
+  pesanAwal.style.display = "block";
+  Tombol.style.opacity = "1";
+  Tombol.style.transform = "scale(1)";
+});
+
+// Fungsi untuk menampilkan pesan SweetAlert dan menuju ke WhatsApp
+async function menuju() {
+  await swals.fire('OK!', 'Kirim pesan ke WhatsApp aku, ya!', 'success');
+  window.location = "https://api.whatsapp.com/send?phone=&text=" + pesanwhatsapp;
+}
+
 const swalst = Swal.mixin({
   timer: 2777,
   allowOutsideClick: false,
@@ -73,9 +94,14 @@ function createHeart() {
 setInterval(function name(params) {
   var heartArr = document.querySelectorAll(".fa-heart");
   if (heartArr.length > 100) {
-    heartArr[0].remove();
+    heartArr[0].remove()
   }
 }, 100);
+
+ftom = 0;
+jikatom = 0;
+ftganti = 0;
+fungsi = 0;
 
 function mulaikonten() {
   setTimeout(fmketik1, 1700);
@@ -102,98 +128,24 @@ vketikd = kalimatd.innerHTML;
 kalimatd.innerHTML = "";
 
 async function jawab() {
-  var { value: jawaban } = await swals.fire({
-    title: 'Tulis Pesan 🥳🎉',
+  var {
+    value: jawaban
+  } = await swals.fire({
+    title: 'Tulis Pesan &#128073;&#128072;',
     input: 'text',
     allowOutsideClick: false,
     showCancelButton: false,
   });
-
   if (jawaban && jawaban.length < 19) {
     window.jawaban = jawaban;
     pesanwhatsapp = jawaban;
     balasan = jawaban;
     otomatis3();
-    document.getElementById('Tombol').style.opacity = "1";
-    document.getElementById('Tombol').style.transform = "scale(1)";
+    setTimeout(stakhir, 1000);
   } else {
     await swals.fire('Ups!', 'Jawaban tidak boleh kosong atau lebih dari 18 karakter, ya!');
     jawab();
   }
-}
-
-function multifungsi() {
-  jawab();
-}
-
-function fmketik1() {
-  kalimat.style.visibility = "visible";
-  kalimat.style.opacity = "1";
-  kalimat.innerHTML = vketik;
-}
-
-function mketik1() {
-  kalimat.style.visibility = "visible";
-  kalimat.style.opacity = "1";
-  kalimat.innerHTML = vketik;
-}
-
-function fmketik2() {
-  kalimata.style.visibility = "visible";
-  kalimata.style.opacity = "1";
-  kalimata.innerHTML = vketika;
-}
-
-function mketik2() {
-  kalimata.style.visibility = "visible";
-  kalimata.style.opacity = "1";
-  kalimata.innerHTML = vketika;
-}
-
-function fmketik3() {
-  kalimatb.style.visibility = "visible";
-  kalimatb.style.opacity = "1";
-  kalimatb.innerHTML = vketikb;
-}
-
-function mketik3() {
-  kalimatb.style.visibility = "visible";
-  kalimatb.style.opacity = "1";
-  kalimatb.innerHTML = vketikb;
-}
-
-function fmketik4() {
-  kalimatc.style.visibility = "visible";
-  kalimatc.style.opacity = "1";
-  kalimatc.innerHTML = vketikc;
-}
-
-function mketik4() {
-  kalimatc.style.visibility = "visible";
-  kalimatc.style.opacity = "1";
-  kalimatc.innerHTML = vketikc;
-}
-
-function fmketik5() {
-  kalimatd.style.visibility = "visible";
-  kalimatd.style.opacity = "1";
-  kalimatd.innerHTML = vketikd;
-}
-
-function mketik5() {
-  kalimatd.style.visibility = "visible";
-  kalimatd.style.opacity = "1";
-  kalimatd.innerHTML = vketikd;
-}
-
-function otomatis3() {
-  Swal.fire({
-    title: 'OK!',
-    text: 'Kirim pesan ke WhatsApp aku, ya!',
-    icon: 'success'
-  }).then(() => {
-    window.location = "https://api.whatsapp.com/send?phone=&text=" + pesanwhatsapp;
-  });
 }
 </script>
 
